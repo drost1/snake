@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Figure.cs" />
     <Compile Include="Horizontalline.cs" />
     <Compile Include="point.cs" />
     <Compile Include="Program.cs" />
