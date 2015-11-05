@@ -15,7 +15,7 @@ namespace Snake
             Console.SetWindowSize(80, 25);
 
             Point lefttop = new Point(0, 0, ' ');
-            Point rightbottom = new Point(79, 24, ' ');
+            Point rightbottom = new Point(79, 23, ' ');
 
             // Рисуем рамочку
             char sym = '+';
@@ -28,27 +28,19 @@ namespace Snake
             leftline.Draw();
             rightline.Draw();
 
-            Point p = new Point(3, 5, '▓');
-            Snake snake = new Snake(p, 4, Direction.RIGHT);
-            snake.Draw();
-            System.Threading.Thread.Sleep(300);
-            snake.Move();
-            System.Threading.Thread.Sleep(300);
-            snake.Move();
-            snake.direction = Direction.DOWN;
-            System.Threading.Thread.Sleep(300);
-            snake.Move();
-            System.Threading.Thread.Sleep(300);
-            snake.Move();
-            System.Threading.Thread.Sleep(300);
-            snake.Move();
-            System.Threading.Thread.Sleep(300);
-            snake.Move();
-            System.Threading.Thread.Sleep(300);
-            snake.Move();
-            System.Threading.Thread.Sleep(300);
-            snake.Move();
+            Point p = new Point(3, 5, '█');
+            Snake snake = new Snake(p, 10, Direction.RIGHT);
 
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey(true);
+                    snake.HandleKey(key.Key);
+                }
+                System.Threading.Thread.Sleep(100);
+                snake.Move();
+            }
 
             Console.ReadLine();
 		}
